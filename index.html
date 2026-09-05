@@ -2,243 +2,317 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Prasanta Karki - Curriculum Vitae</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prasanta Karki | Engineering Portfolio & CV</title>
     <style>
-        @page {
-            size: letter;
-            margin: 16mm 16mm;
-            background-color: #ffffff;
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --primary: #1e293b;
+            --accent: #2563eb;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
         }
-        *, *::before, *::after {
+
+        * {
             box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            color: #222222;
-            line-height: 1.42;
-            font-size: 10pt;
             margin: 0;
             padding: 0;
         }
 
-        /* Header Styling */
-        .header {
-            border-bottom: 2px solid #1b365d;
-            padding-bottom: 8px;
-            margin-bottom: 14px;
-        }
-        .name {
-            font-size: 21pt;
-            font-weight: bold;
-            color: #1b365d;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin: 0 0 4px 0;
-        }
-        .contact-info {
-            font-size: 9.5pt;
-            color: #4a5568;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
         }
 
-        /* Section Styling */
-        .section {
-            margin-bottom: 13px;
+        nav {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .section-title {
-            font-size: 10.5pt;
-            font-weight: bold;
-            color: #1b365d;
-            text-transform: uppercase;
+
+        nav .logo {
+            font-weight: 700;
+            font-size: 1.1rem;
             letter-spacing: 0.5px;
-            border-bottom: 1px solid #cbd5e0;
-            padding-bottom: 2px;
+        }
+
+        nav .contact-links a {
+            color: #93c5fd;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        nav .contact-links a:hover {
+            color: white;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 40px auto 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 32px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 28px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .entry {
+            margin-bottom: 20px;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
             margin-bottom: 6px;
         }
 
-        /* Content Styling */
-        p {
-            margin: 0 0 4px 0;
-        }
-        
-        .entry {
-            margin-bottom: 7px;
-        }
-        
-        .entry-header {
-            width: 100%;
-            margin-bottom: 2px;
-        }
-        
         .entry-title {
-            font-weight: bold;
-            color: #111111;
-            display: inline;
-        }
-        
-        .entry-org {
-            font-style: italic;
-            color: #2d3748;
-            display: inline;
-        }
-        
-        .entry-date {
-            float: right;
-            font-weight: bold;
-            color: #4a5568;
-            font-size: 9pt;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.05rem;
         }
 
-        .clear {
-            clear: both;
+        .entry-org {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .entry-date {
+            background: #f1f5f9;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-weight: 600;
         }
 
         ul {
-            margin: 2px 0 0 0;
-            padding-left: 18px;
-        }
-        
-        li {
-            margin-bottom: 2px;
+            padding-left: 20px;
         }
 
-        .skills-table {
-            width: 100%;
-            border-collapse: collapse;
+        li {
+            margin-bottom: 6px;
+            color: var(--text-main);
         }
-        
-        .skills-table td {
-            padding: 2px 0;
-            vertical-align: top;
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
         }
-        
-        .skills-label {
-            font-weight: bold;
-            color: #2d3748;
-            width: 28%;
+
+        .badge {
+            background: #eff6ff;
+            color: var(--accent);
+            border: 1px solid #bfdbfe;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
         }
-        
-        .skills-value {
-            color: #222222;
-            width: 72%;
-        }
-        
-        .cert-list {
-            margin: 0;
-            padding-left: 18px;
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+            nav .contact-links a {
+                margin: 0 8px;
+            }
+            .entry-header {
+                flex-direction: column;
+            }
+            .entry-date {
+                margin-top: 4px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <div class="name">Prasanta Karki</div>
-        <div class="contact-info">
-            Edmonton, AB | +1 780-271-2261 | prasantakarki1@gmail.com
+    <nav>
+        <div class="logo">Prasanta Karki</div>
+        <div class="contact-links">
+            <a href="mailto:prasantakarki1@gmail.com">prasantakarki1@gmail.com</a>
+            <a href="tel:+17802712261">+1 (780) 271-2261</a>
         </div>
-    </div>
+    </nav>
 
-    <div class="section">
-        <div class="section-title">Academic Profile</div>
-        <p>
-            First-year engineering student at the University of Alberta pursuing mechanical engineering. Brings strong time management skills from balancing heavy technical course loads and fast-paced team environments. Experienced in hands-on prototyping, group design projects, technical report writing, and front-of-house operations.
-        </p>
-    </div>
+    <div class="container">
 
-    <div class="section">
-        <div class="section-title">Education</div>
-        <div class="entry">
-            <div class="entry-header">
-                <span class="entry-title">Bachelor of Science in Engineering</span> — <span class="entry-org">University of Alberta</span>, Edmonton, AB
-                <span class="entry-date">2025 – Present</span>
+        <div class="hero">
+            <h1>Prasanta Karki</h1>
+            <div class="subtitle">B.Sc. Engineering Student | University of Alberta</div>
+            <p>First-year engineering student pursuing mechanical engineering[cite: 16]. Experienced in hands-on design prototyping[cite: 16], physical testing[cite: 16], technical communication[cite: 16], and fast-paced operational teamwork[cite: 16].</p>
+        </div>
+
+        <div class="card">
+            <div class="section-title">Education</div>
+            
+            <div class="entry">
+                <div class="entry-header">
+                    <div>
+                        <span class="entry-title">Bachelor of Science in Engineering</span> 
+                        <span class="entry-org">— University of Alberta, Edmonton, AB</span>
+                    </div>
+                    <span class="entry-date">2025 – Present</span>
+                </div>
+                <ul>
+                    <li><strong>Relevant Coursework:</strong> ENGG 160 (Intro to Engineering Design), Engineering Mechanics I (Statics), Technical Communication, Calculus, Physics, Chemistry[cite: 16].</li>
+                    <li><strong>Focus:</strong> Mechanical design principles, structural analysis, and professional technical reporting[cite: 16].</li>
+                </ul>
             </div>
-            <div class="clear"></div>
+
+            <div class="entry" style="margin-top: 16px;">
+                <div class="entry-header">
+                    <div>
+                        <span class="entry-title">High School Diploma</span> 
+                        <span class="entry-org">— Harry Ainlay High School, Edmonton, AB</span>
+                    </div>
+                    <span class="entry-date">Graduated 2025</span>
+                </div>
+                <ul>
+                    <li><strong>Honors with Distinction:</strong> Awarded for outstanding academic consistency across core subjects[cite: 16].</li>
+                    <li><strong>Service Award:</strong> Recognized for contributing 20+ hours of operational and logistical support to school events[cite: 16].</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="section-title">Academic Engineering Projects</div>
+            
+            <div class="entry">
+                <div class="entry-header">
+                    <div>
+                        <span class="entry-title">Glider Design & Construction Project (ENGG 160)</span>
+                        <span class="entry-org">— University of Alberta</span>
+                    </div>
+                    <span class="entry-date">2025</span>
+                </div>
+                <ul>
+                    <li>Collaborated in a student engineering team to design, build, and test a functional glider model under strict dimensional and weight constraints[cite: 16].</li>
+                    <li>Applied core aerodynamic and structural principles to optimize weight distribution, wing placement, and flight stability[cite: 16].</li>
+                    <li>Communicated effectively with group members to iterate component designs, assemble physical prototypes, and meet testing deadlines[cite: 16].</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="section-title">Work & Volunteer Experience</div>
+            
+            <div class="entry">
+                <div class="entry-header">
+                    <div>
+                        <span class="entry-title">Front Counter Team Member</span>
+                        <span class="entry-org">— A&W, Leduc, AB</span>
+                    </div>
+                    <span class="entry-date">2026</span>
+                </div>
+                <ul>
+                    <li>Processed POS cash and card transactions accurately while providing efficient customer service during high-volume peak hours[cite: 16].</li>
+                    <li>Maintained clean front-of-house operations and coordinated with kitchen staff to streamline order preparation and fulfillment[cite: 16].</li>
+                </ul>
+            </div>
+
+            <div class="entry" style="margin-top: 16px;">
+                <div class="entry-header">
+                    <div>
+                        <span class="entry-title">Team Host & Event Logistics Volunteer</span>
+                        <span class="entry-org">— Harry Ainlay Tri-Prov Tournament</span>
+                    </div>
+                    <span class="entry-date">Jan 2025 – Feb 2025</span>
+                </div>
+                <ul>
+                    <li>Guided visiting athletic teams across campus facilities and managed schedule logistics during a multi-day tournament[cite: 16].</li>
+                    <li>Maintained direct communication with tournament organizers to resolve scheduling adjustments on the spot[cite: 16].</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="section-title">Technical Skills & Tools</div>
+            <div class="badge-container">
+                <span class="badge">SolidWorks (3D Modeling)</span>
+                <span class="badge">Technical Writing</span>
+                <span class="badge">Prototyping & Testing</span>
+                <span class="badge">Statics & Mechanics</span>
+                <span class="badge">POS Systems</span>
+                <span class="badge">MS Excel & Word</span>
+                <span class="badge">Team Leadership</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="section-title">Certifications & Awards</div>
             <ul>
-                <li><strong>Relevant Coursework:</strong> ENGG 160 (Introduction to Engineering Design), Engineering Mechanics I (Statics), Technical Communication, Calculus, Physics, Chemistry.</li>
-                <li><strong>Academic Focus:</strong> Applied mechanical design principles, structural analysis, effective team dynamics, and professional technical writing.</li>
+                <li><strong>Class 5 Driver's License</strong> — Province of Alberta[cite: 16]</li>
+                <li><strong>High School Service Award</strong> — Recognized for 20+ hours of community support[cite: 16]</li>
+                <li><strong>Honors with Distinction</strong> — Academic Excellence Award (2025)[cite: 16]</li>
             </ul>
         </div>
 
-        <div class="entry" style="margin-top: 5px;">
-            <div class="entry-header">
-                <span class="entry-title">High School Diploma</span> — <span class="entry-org">Harry Ainlay High School</span>, Edmonton, AB
-                <span class="entry-date">Graduated 2025</span>
-            </div>
-            <div class="clear"></div>
-            <ul>
-                <li><strong>Honors with Distinction:</strong> Awarded for outstanding academic consistency and discipline across core subjects.</li>
-                <li><strong>Service Award:</strong> Recognized for contributing 20+ hours of operational and logistical support to school events.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title">Academic Engineering Projects</div>
-        <div class="entry">
-            <div class="entry-header">
-                <span class="entry-title">Glider Design & Construction Project (ENGG 160)</span> — <span class="entry-org">University of Alberta</span>
-                <span class="entry-date">2025</span>
-            </div>
-            <div class="clear"></div>
-            <ul>
-                <li>Collaborated in a student engineering team to design, build, and test a functional glider model under strict dimensional and weight constraints.</li>
-                <li>Applied core aerodynamic and structural principles to optimize weight distribution, wing placement, and flight stability.</li>
-                <li>Communicated effectively with group members to iterate component designs, assemble physical prototypes, and meet testing deadlines.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title">Work & Volunteer Experience</div>
-        <div class="entry">
-            <div class="entry-header">
-                <span class="entry-title">Front Counter Team Member</span> — <span class="entry-org">A&W</span>, Leduc, AB
-                <span class="entry-date">2026</span>
-            </div>
-            <div class="clear"></div>
-            <ul>
-                <li>Processed POS cash and card transactions accurately while providing efficient customer service during high-volume peak hours.</li>
-                <li>Maintained clean front-of-house operations and coordinated with kitchen staff to streamline order preparation and fulfillment.</li>
-            </ul>
-        </div>
-
-        <div class="entry" style="margin-top: 5px;">
-            <div class="entry-header">
-                <span class="entry-title">Team Host & Event Logistics Volunteer</span> — <span class="entry-org">Harry Ainlay Tri-Prov Tournament</span>, Edmonton, AB
-                <span class="entry-date">Jan 2025 – Feb 2025</span>
-            </div>
-            <div class="clear"></div>
-            <ul>
-                <li>Guided visiting athletic teams across campus facilities and managed schedule logistics during a multi-day tournament.</li>
-                <li>Maintained direct communication with tournament organizers to resolve scheduling adjustments and operational needs on the spot.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title">Technical & Personal Skills</div>
-        <table class="skills-table">
-            <tr>
-                <td class="skills-label">Software & Tools:</td>
-                <td class="skills-value">Basic SolidWorks (3D Modeling & Sketching), POS Systems, Microsoft Word, Microsoft Excel</td>
-            </tr>
-            <tr>
-                <td class="skills-label">Technical Communication:</td>
-                <td class="skills-value">Technical Report Formatting, Lab Documentation, Team Design Presentations</td>
-            </tr>
-            <tr>
-                <td class="skills-label">Engineering & Work Habits:</td>
-                <td class="skills-value">Hands-on Prototyping, Customer Service, Team Collaboration, Schedule Management</td>
-            </tr>
-        </table>
-    </div>
-
-    <div class="section">
-        <div class="section-title">Certifications & Awards</div>
-        <ul class="cert-list">
-            <li><strong>Class 5 Driver's License</strong> — Province of Alberta</li>
-            <li><strong>High School Service Award</strong> — Recognized for 20+ hours of community and operational support</li>
-            <li><strong>Honors with Distinction</strong> — Academic Excellence Award (2025)</li>
-        </ul>
     </div>
 
 </body>
